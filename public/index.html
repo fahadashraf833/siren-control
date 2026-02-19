@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Siren Control</title>
+</head>
+<body style="text-align:center; margin-top:100px;">
+
+    <h1>ESP32 Siren Control</h1>
+
+    <button onclick="trigger(500)">0.5 Sec</button>
+    <button onclick="trigger(1000)">1 Sec</button>
+    <button onclick="trigger(5000)">5 Sec</button>
+
+    <script>
+        function trigger(time) {
+            fetch(`/trigger?time=${time}`)
+            .then(res => res.text())
+            .then(data => alert(data));
+        }
+    </script>
+
+</body>
+</html>
